@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cloud Computing & Remote Work</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0f1c2e;
+      color: #e0e0e0;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: linear-gradient(90deg, #1f4068, #16213e);
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+    nav ul {
+      list-style: none;
+      padding: 0;
+    }
+    nav ul li {
+      display: inline;
+      margin: 0 15px;
+    }
+    nav ul li a {
+      color: #00bcd4;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    section {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .card {
+      background: #1e2a38;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #16213e;
+      color: #aaa;
+    }
+    a {
+      color: #03dac6;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Cloud Computing & Remote Work</h1>
+    <nav>
+      <ul>
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#benefits">Benefits</a></li>
+        <li><a href="#howto">How to Use</a></li>
+        <li><a href="#tools">Tools</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="overview">
+    <div class="card">
+      <h2>What is Cloud Computing?</h2>
+      <p>Cloud computing refers to the delivery of computing services like servers, storage, databases, networking, software, and analytics over the internet. It allows businesses and individuals to access technology services on demand without owning physical infrastructure.</p>
+    </div>
+    <div class="card">
+      <h2>Remote Work and Cloud Computing</h2>
+      <p>Remote work has become widely adopted due to its flexibility. Cloud computing enables remote work by allowing employees to access applications, files, and tools from anywhere with an internet connection.</p>
+    </div>
+  </section>
+<section id="demo">
+  <div class="card">
+    <h2>Cloud Computing Demo: Offloaded Calculation</h2>
+    <p>This demo simulates cloud computing. Enter a number and get the factorial — calculated by a backend server, not your device!</p>
+    <input type="number" id="inputNumber" placeholder="Enter a number" />
+    <button onclick="calculateFactorial()">Compute Factorial</button>
+    <p id="result"></p>
+  </div>
+</section>
+
+<script>
+  async function calculateFactorial() {
+    const num = document.getElementById('inputNumber').value;
+    const resultDisplay = document.getElementById('result');
+
+    if (!num) {
+      resultDisplay.textContent = 'Please enter a number.';
+      return;
+    }
+
+    resultDisplay.textContent = 'Computing...';
+
+    try {
+      const response = await fetch(`http://localhost:5000/factorial?number=${num}`);
+      const data = await response.json();
+      resultDisplay.textContent = `Result: ${data.result}`;
+    } catch (err) {
+      resultDisplay.textContent = 'Error: Could not connect to backend.';
+    }
+  }
+</script>
+
+  <section id="benefits">
+    <div class="card">
+      <h2>Benefits of Cloud Computing for Remote Work</h2>
+      <ul>
+        <li>24/7 access to files and applications</li>
+        <li>Scalable resources based on demand</li>
+        <li>Collaboration tools like Google Workspace, Microsoft 365, Zoom</li>
+        <li>Automatic backups and disaster recovery</li>
+        <li>Enhanced security and access control</li>
+        <li>Cost-effective infrastructure</li>
+        <li>Supports global teams with synchronized tools</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="howto">
+    <div class="card">
+      <h2>How to Use Cloud Computing for Remote Work Access</h2>
+      <ol>
+        <li><strong>Choose a Cloud Provider:</strong> Select from platforms like Google Cloud, AWS, Microsoft Azure, or Dropbox based on your needs.</li>
+        <li><strong>Create Cloud Accounts:</strong> Sign up and configure user access roles for your team.</li>
+        <li><strong>Upload and Share Files:</strong> Use cloud storage to store and share important files securely.</li>
+        <li><strong>Use Collaboration Tools:</strong> Integrate apps like Google Docs, Teams, or Slack for real-time communication and teamwork.</li>
+        <li><strong>Ensure Security:</strong> Use strong authentication, data encryption, and manage permissions effectively.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="tools">
+    <div class="card">
+      <h2>Popular Cloud Tools for Remote Work</h2>
+      <ul>
+        <li><strong>Google Workspace:</strong> Cloud-based productivity suite with Gmail, Docs, Drive, Meet, and Calendar.</li>
+        <li><strong>Microsoft 365:</strong> Includes Word, Excel, Teams, Outlook, OneDrive, and SharePoint for collaboration.</li>
+        <li><strong>Zoom:</strong> Cloud-based video conferencing tool with screen sharing and breakout rooms.</li>
+        <li><strong>Slack:</strong> Messaging and collaboration app that integrates with various cloud tools.</li>
+        <li><strong>Dropbox:</strong> Secure cloud storage and file sharing service with collaboration features.</li>
+        <li><strong>Trello & Asana:</strong> Project management tools that operate on cloud infrastructure for remote teams.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="card">
+      <h2>Contact</h2>
+      <p>If you have questions about cloud computing or this project, feel free to reach out:</p>
+      <p>Email: <a href="mailto:student@example.com">student@example.com</a></p>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Cloud Computing Project by Jai Pratap Singh Rajawat</p>
+  </footer>
+</body>
+</html>
