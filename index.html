@@ -102,7 +102,7 @@
     resultDisplay.textContent = 'Computing...';
 
     try {
-      const response = await fetch(`https://factorial-api.onrender.com/factorial?number=${num}`);
+      const response = await fetch(`https://back-end-pekg.onrender.com/factorial?number=${num}`);
       const data = await response.json();
       resultDisplay.textContent = `Result: ${data.result}`;
     } catch (err) {
